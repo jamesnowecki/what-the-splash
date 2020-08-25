@@ -13,9 +13,8 @@ function* handleImagesLoad() {
     } catch (error) {
         yield put(setError(error.toString()));
     }
-
-}
+};
 
 export default function* watchImagesLoad() {
     yield takeEvery(IMAGES.LOAD, handleImagesLoad);
-}
+};

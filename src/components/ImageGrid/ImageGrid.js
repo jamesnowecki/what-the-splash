@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadImages } from "../../actions"; 
+import Button from '../Button';
 
 import './styles.css';
 
@@ -11,7 +12,7 @@ class ImageGrid extends Component {
     }
 
     render() {
-        const { images, error } = this.props;
+        const { images, error, loadImages, isLoading } = this.props;
         return (
             <div className="content">
                 <section className="grid">
@@ -29,9 +30,12 @@ class ImageGrid extends Component {
                         </div>
                     ))}
 
-                    <button onClick ={this.props.loadImages}>Load images</button>
                 </section>
                 {error && <div className="error">{JSON.stringify(error)}</div>}
+                <Button 
+                onClick ={() => !isLoading && loadImages()} loading={isLoading}>Load images
+                </Button>
+
             </div>
         );
     }
