@@ -1,4 +1,4 @@
-import { IMAGES } from "../constants";
+import { IMAGES } from '../constants';
 
 const loadingReducer = (state = false, action) => {
     switch (action.type) {
@@ -8,6 +8,7 @@ const loadingReducer = (state = false, action) => {
             return false;
         case IMAGES.LOAD_FAIL:
             return false;
+
         default:
             return state;
     }
